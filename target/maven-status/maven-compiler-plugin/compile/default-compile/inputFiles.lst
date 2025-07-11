@@ -1,0 +1,11 @@
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/MartClinicApplication.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/controllers/DoctorController.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/controllers/PrescriptionController.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/models/Appointment.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/models/Doctor.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/models/Patient.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/repositories/DoctorRepository.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/repositories/PatientRepository.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/services/AppointmentService.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/services/DoctorService.java
+/Users/saifali/Documents/Coding/mart-clinic-management/backend/src/main/java/com/project/services/TokenService.java

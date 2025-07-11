@@ -4,11 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Doctor {
+public class Patient {
+
     @Id
     private Long id;
+
     private String name;
-    private String specialty;
+    private String email;
+
+    // Add other fields as needed
 
     // Getters and setters
     public Long getId() { return id; }
@@ -17,6 +21,6 @@ public class Doctor {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public String getSpecialty() { return specialty; }
-    public void setSpecialty(String specialty) { this.specialty = specialty; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 }
