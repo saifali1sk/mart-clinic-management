@@ -1,28 +1,18 @@
-package com.project.controllers;
+@GetMapping("/availability")
+public ResponseEntity<List<String>> getDoctorAvailability(
+        @RequestHeader("Authorization") String token,
+        @RequestParam("role") String role,
+        @RequestParam("doctorId") Long doctorId,
+        @RequestParam("date") String dateStr
+) {
+    LocalDate date = LocalDate.parse(dateStr);
 
-import com.project.models.Doctor;
-import com.project.repositories.DoctorRepository;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-@RestController
-@RequestMapping("/doctors")
-public class DoctorController {
-
-    private final DoctorRepository repo;
-
-    public DoctorController(DoctorRepository repo) {
-        this.repo = repo;
+    // Validate token and role (simplified logic)
+    if (!doctorService.isAuthorized(token, role)) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
-    @GetMapping
-    public List<Doctor> getAll() {
-        return repo.findAll();
-    }
-
-    @PostMapping
-    public Doctor create(@RequestBody Doctor doctor) {
-        return repo.save(doctor);
-    }
+    // Fetch availability
+    List<String> availableSlots = doctorService.getAvailabilityByDoctorAndDate(doctorId, date);
+    return ResponseEntity.ok(availableSlots);
 }
