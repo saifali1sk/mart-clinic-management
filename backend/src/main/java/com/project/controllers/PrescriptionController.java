@@ -1,18 +1,13 @@
-package com.project.controllers;
-
-import org.springframework.web.bind.annotation.*;
-
-@RestController
-@RequestMapping("/prescriptions")
-public class PrescriptionController {
-
-    @GetMapping
-    public String getAllPrescriptions() {
-        return "List of prescriptions";
+@PostMapping("/add/{token}")
+public ResponseEntity<Prescription> createPrescription(
+        @PathVariable String token,
+        @Valid @RequestBody Prescription prescription
+) {
+    // Optional: validate token (simplified)
+    if (!tokenService.isValid(token)) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
-    @PostMapping
-    public String addPrescription(@RequestBody String prescriptionData) {
-        return "Prescription added: " + prescriptionData;
-    }
+    Prescription saved = prescriptionService.savePrescription(prescription);
+    return ResponseEntity.status(HttpStatus.CREATED).body(saved);
 }
